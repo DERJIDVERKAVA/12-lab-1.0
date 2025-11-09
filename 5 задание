@@ -1,0 +1,25 @@
+using System;
+
+public class Settings
+{
+    private static readonly string configFilePath;
+    
+    static Settings()
+    {
+        configFilePath = "C:\\ProgramData\\MyApp\\config.xml";
+    }
+    
+    public static string ConfigFilePath => configFilePath;
+    
+    public static void DisplayConfigPath()
+    {
+        Console.WriteLine($"Путь к файлу конфигурации: {configFilePath}");
+    }
+    
+    public static void Main(string[] args)
+    {
+        Settings.DisplayConfigPath();
+        
+        Console.WriteLine($"Путь через свойство: {Settings.ConfigFilePath}");
+    }
+}
