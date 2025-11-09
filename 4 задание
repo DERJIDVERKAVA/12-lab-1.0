@@ -1,0 +1,49 @@
+using System;
+
+public class Book
+{
+    private readonly string isbn;
+    private string title;
+    private string author;
+    
+    public string ISBN => isbn;
+    
+    public string Title
+    {
+        get { return title; }
+        set { title = value; }
+    }
+    
+    public string Author
+    {
+        get { return author; }
+        set { author = value; }
+    }
+    
+    public Book(string isbn, string title, string author)
+    {
+        this.isbn = isbn;
+        this.title = title;
+        this.author = author;
+    }
+    
+    public void DisplayInfo()
+    {
+        Console.WriteLine($"Книга: {title}");
+        Console.WriteLine($"Автор: {author}");
+        Console.WriteLine($"ISBN: {isbn}");
+    }
+    
+    public static void Main(string[] args)
+    {
+        Book book = new Book("978-5-699-12014-7", "Мастер и Маргарита", "Михаил Булгаков");
+        
+        book.DisplayInfo();
+        
+        Console.WriteLine("\nПопытка изменить название и автора:");
+        book.Title = "Мастер и Маргарита (полная версия)";
+        book.Author = "М.А. Булгаков";
+        book.DisplayInfo();
+        
+    }
+}
